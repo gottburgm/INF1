@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
     std::cout << "TVA : " << TAXE * 100 << "% ." << endl;
     std::cout << "Valeur ajoutee : " << prix_taxe << " CHF." << endl << endl << endl;
     std::cout << "Total : " << prix_total << " CHF." << endl;
-     std::cout << "===============================" << endl;
+    std::cout << "===============================" << endl;
     
     return 0;
 }
