@@ -1,19 +1,19 @@
 /*
-—---------------------------------------------------------------------------------
+ï¿½---------------------------------------------------------------------------------
 Laboratoire : Laboratoire 3
 Fichier     : KorradLabo3.cpp
-Auteur(s)   : Frédéric Korradi
+Auteur(s)   : FrÃ©dÃ©ric Korradi
 Date        : 06.10.2016
 
 But         : Chapitres 1 et 2
 
 Remarque(s) : Le programme ne fait aucun test. Si la saisie n'est pas correcte,
-si autre chose que des enteiers positifs sont insérés et pas exagérement grand
-(éviter les nombres supérieurs à quelques centaines de millions,il pourra avoir
-des comportements imprévus.
+si autre chose que des enteiers positifs sont insï¿½rï¿½s et pas exagï¿½rement grand
+(ï¿½viter les nombres supï¿½rieurs ï¿½ quelques centaines de millions,il pourra avoir
+des comportements imprï¿½vus.
 
 Compilateur : MinGW-g++ 4.8.1
-—---------------------------------------------------------------------------------
+ï¿½---------------------------------------------------------------------------------
 */
 #include <iostream>
 #include <cmath>
@@ -48,7 +48,4 @@ int main() {
 	cout << "Entrez un nombre entier >= 0:";
 	cin >> saisieUtilisateur;
 	cout << endl << endl << floor(log10(abs(saisieUtilisateur))) + 1;
-	
-
-
 }
