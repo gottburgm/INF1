@@ -1,8 +1,11 @@
 /*
 �---------------------------------------------------------------------------------
 Laboratoire : Laboratoire 3
-Fichier     : KorradLabo3.cpp
-Auteur(s)   : Frédéric Korradi
+Fichier     : Korradi_Gottburg_Fournier.cpp
+Auteur(s)   : Michael Gottburg
+              Robin Fournier 
+              Frédéric Korrad
+
 Date        : 06.10.2016
 
 But         : Chapitres 1 et 2
@@ -17,7 +20,6 @@ Compilateur : MinGW-g++ 4.8.1
 */
 #include <iostream>
 #include <cmath>
-#include <math.h>
 #include <iomanip>
 #include <string>
 
@@ -25,27 +27,31 @@ using namespace std;
 
 int main() {
 	//Exercice 2.11
-	unsigned int r1, r2, h1, h2, h3;
-	double pi = 3.1415926535;
-	cout << "veuillez entrer r1" << endl;
+        const double PI = atan(1)*4;
+	double r1, r2, h1, h2, h3;
+        cout << "========================== Exercice 2.11 ==========================="<< endl << endl;
+	cout << "Veuillez entrer r1 [cm]:" << endl;
 	cin >> r1;
-	cout << "veuillez entrer r2" << endl;
+	cout << "Veuillez entrer r2 [cm]:" << endl;
 	cin >> r2;
-	cout << "veuillez entrer h1" << endl;
+	cout << "Veuillez entrer h1 [cm]:" << endl;
 	cin >> h1;
-	cout << "veuillez entrer h2" << endl;
+	cout << "Veuillez entrer h2 [cm]:" << endl;
 	cin >> h2;
-	cout << "veuillez entrer h3" << endl;
+	cout << "Veuillez entrer h3 [cm]:" << endl;
 	cin >> h3;
-	double volCylindre1 = pi*pow(r1, 2)*h1;
-	double volCylindre2 = pi*pow(r2, 2)*h2;
-	double volCone = ((h3*pi / 3)*(pow(r1, 2) + pow(r2, 2) + r1*r2));
+	double volCylindre1 = PI * pow(r1, 2)*h1;
+	double volCylindre2 = PI * pow(r2, 2)*h2;
+	double volCone = (h3* PI / 3)*(pow(r1, 2) + pow(r2, 2) + r1*r2);
 	double volTot = volCylindre1 + volCylindre2 + volCone;
-	cout << "volume totale : " << volTot << " cm3" << endl;
-
-	//Exercice 2.13
+	cout << "Volume total : " << volTot << " cm3" << endl; //voir precision
+        cout << "====================================================================" << endl;
+	
+        //Exercice 2.13
+        cout << "========================== Exercice 2.13 ==========================="<< endl << endl;
 	int saisieUtilisateur, nbChiffres, nbFirstChiffre, nbLastChiffre;
-	cout << "Entrez un nombre entier >= 0:";
+	cout << "Veuillez saisir un nombre entier >= 0:";
 	cin >> saisieUtilisateur;
 	cout << endl << endl << floor(log10(abs(saisieUtilisateur))) + 1;
+        cout << "====================================================================" << endl;
 }
