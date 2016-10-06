@@ -11,16 +11,16 @@
 						2) affiche à l'écran : la somme, la différence, le produit et le quotient de val1 et val2
 						3) échange les valeurs des 2 variables et affiche à l’écran leur nouvelle valeur
 
- Remarque(s) :  =========================== Tests =================================
-                        |		Valeurs		|			Résultat(s)			|                        Remarque						|
-                        |	12 et 10			|	22, 2, 120, 1 reste 2		|	OK												|     
-                        |	a					|	message erreur (géré)	|	OK												|
-                        |	7 et aaa			|	message erreur (géré)	|	OK												|
-                        |						|	géré par C++				|	OK												|
-                        |	10 et 3			|	13, 7, 30, 3 reste 1		|	OK												|
-                        |	-5 et 89			|	84, -94, -445, 0 reste -5	|	OK												|
-                        |	-10 et -2			|	-12, -8, 20, 5 reste 0		|	OK												|
-                        =================================================================
+ Remarque(s) :	=========================== Tests ===============================
+				|	Valeurs		|			Résultat(s)			|	Remarque	|
+				|	12 et 10	|	22, 2, 120, 1 reste 2		|		OK		|     
+				|	a			|	message erreur (géré)		|		OK		|
+				|	7 et aaa	|	message erreur (géré)		|		OK		|
+				|				|	géré par C++				|		OK		|
+				|	10 et 3		|	13, 7, 30, 3 reste 1		|		OK		|
+				|	-5 et 89	|	84, -94, -445, 0 reste -5	|		OK		|
+				|	-10 et -2	|	-12, -8, 20, 5 reste 0		|		OK		|
+				=================================================================
 
  Compilateur : MinGW-g++ 4.8.1
  -----------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ int main(int argc, char** argv) {
 		cout << iVal1 << " - " << iVal2 << " = " << iVal1 - iVal2 << endl;
 		cout << iVal1 << " * " << iVal2 << " = " << iVal1 * iVal2 << endl;
 		cout << iVal1 << " / " << iVal2 << " = " << iVal1 / iVal2
-						<< " reste " << iVal1 % iVal2 << endl;
+			<< " reste " << iVal1 % iVal2 << endl;
 
 		// échange des valeurs entre les deux variables et affichage
 		iTemp = iVal2;
