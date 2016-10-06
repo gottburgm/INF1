@@ -41,7 +41,31 @@ int main() {
 	double volCylindre2 = pi*pow(r2, 2)*h2;
 	double volCone = ((h3*pi / 3)*(pow(r1, 2) + pow(r2, 2) + r1*r2));
 	double volTot = volCylindre1 + volCylindre2 + volCone;
-	cout << "volume totale : " << volTot << " cm3" << endl;
+
+	cout << "               r1" << endl;
+	cout << "              |--|" << endl;
+	cout << "          ........		-" << endl;
+	cout << "          ||||||||      | h2" << endl;
+	cout << "         /같같같같\\     -" << endl;
+	cout << "        /          \\    |" << endl;
+	cout << "       /            \\   | h3" << endl;
+	cout << "       | --------- -|   -" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   | h4" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       |            |   |" << endl;
+	cout << "       | __________ |   -" << endl;
+	cout << "              |-----|" << endl;
+	cout << "                 r2" << endl;
+	cout << endl << endl;
+	cout << "volume total : " << volTot << " cm3" << endl;
 
 	//Exercice 2.13
 	int saisieUtilisateur, nbChiffres, nbFirstChiffre, nbLastChiffre;
