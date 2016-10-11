@@ -48,7 +48,7 @@ Volume total : 9.42 cm3
 ====================================================================
 
 Pour l'exercice 2.13
-1-	Avec des valeurs supérieurs à 2147483648, il affichera un nombre
+1-	Avec des valeurs supérieurs à 2147483647, il affichera un nombre
 	de chiffres incohérents.
 ========================== Exercice 2.13 ===========================
 
