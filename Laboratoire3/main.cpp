@@ -89,7 +89,5 @@ int main() {
     cout << "Nombre de chiffres : " << nbChiffres << endl;
     cout << "Premier chiffre    : " << nbFirstChiffre << endl;
     cout << "Dernier chiffre    : " << nbLastChiffre << endl;
-
-    //(int)(saisieUtilisateur / pow(10, (int) floor(log10(saisieUtilisateur)))) << endl;
     cout << "====================================================================" << endl;
 }
