@@ -68,17 +68,26 @@ int main() {
     double volCylindre1 = PI * pow(r1, 2)*h1;
     double volCylindre2 = PI * pow(r2, 2)*h2;
     double volCone = (h3* PI / 3)*(pow(r1, 2) + pow(r2, 2) + r1*r2);
-    double volTot = volCylindre1 + volCylindre2 + volCone;
+    double volTot = volCylindre1 + volCylindre2 + volCone;//test
 
     cout << "Volume total : " << volTot << " cm3" << endl; //voir precision
-    cout << "====================================================================" << endl;
-
+   
     //Exercice 2.13
     cout << "========================== Exercice 2.13 ==========================="<< endl << endl;
 
-    int saisieUtilisateur, nbChiffres, nbFirstChiffre, nbLastChiffre;
-    cout << "Veuillez saisir un nombre entier >= 0:";
-    cin >> saisieUtilisateur;
-    cout << endl << endl << floor(log10(abs(saisieUtilisateur))) + 1 << endl;
+    int nbSaisi=0, nbChiffres=0, nbFirstChiffre=0, nbLastChiffre=0;
+    
+    cout << "Veuillez saisir un nombre entier >= 0: ";
+    cin >> nbSaisi;
+    
+    nbChiffres      = floor(log10(abs(nbSaisi))) +1;
+    nbFirstChiffre  = floor(nbSaisi / pow(10, nbChiffres-1));
+    nbLastChiffre   = nbSaisi % 10;
+    
+    cout << "Nombre saisi       : " << nbSaisi << endl;
+    cout << "Nombre de chiffres : " << nbChiffres << endl;
+    cout << "Premier chiffre    : " << nbFirstChiffre << endl;
+    cout << "Dernier chiffre    : " << nbLastChiffre << endl;
+    
     cout << "====================================================================" << endl;
 }
