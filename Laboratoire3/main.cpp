@@ -4,7 +4,7 @@ Laboratoire : Laboratoire 3
 Fichier     : Korradi_Gottburg_Fournier.cpp
 Auteur(s)   : Michael Gottburg
               Robin Fournier
-              Frédéric Korrad
+              Frédéric Korradi
 
 Date        : 06.10.2016
 
