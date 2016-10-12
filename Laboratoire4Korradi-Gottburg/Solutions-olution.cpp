@@ -6,7 +6,7 @@ Auteur(s)   : Frédéric Korradi, Michael Gottburg
 Date        : 06.10.2016
 
 But         : Instructions conditionnelles
-			  Vérification des valeurs saisies
+				Vérification des valeurs saisies
 
 Remarque(s) : 
 
@@ -22,6 +22,7 @@ Compilateur : MinGW-g++ 4.8.1
 using namespace std;
 
 int main() {
+	//Constant Variables Declaration
 	int const MAXPACKAGEWEIGHT = 10;			//KG
 	int const MAXDIMENSIONS = 50;				//cm
 	int const NORMALPACKAGETAX = 5;				//CHF
@@ -31,24 +32,72 @@ int main() {
 	int const EXCESSWEIGHT8TO10TAX = 2;			//CHF
 	int const EXCESSVOLUMEMORETHEN27DM3TAX = 3;	//CHF
 	int const EXCESSVOLUMEMORETHEN33DM3TAX = 6;	//CHF
-	int const VAT = 0.8;
-	string const SoucisMinusOucis = "Gottburg";
+	double const VAT = 0.8;
 
-	unsigned int finalNormalTAX, fianlWeightOverTAX, finalVolumeOverTAX, finalVATLessTax;
-	double finalVAT, finalTAXToPay;
-	cout << "Salutations et bienvenue dans ce logiciel fais par des" << endl;
-	cout << "Connards qui n'ont pas " << endl;
-	cout << "Hesite à vous faire croire à une " << endl;
-	cout << "Utopie." << endl;
-	cout << "Toujours est-il que nousa vons regarde" << endl;
-	cout << "Zootopia et pensent que" << endl;
-	cout << "Salomon viendrait enfait du " << endl;
-	cout << "Togo et ne serait pas " << endl;
-	cout << "Autoritaire, tout du moins, pas plus que " << endl;
-	cout << "Franz qui ne pensait pas " << endl;
-	cout << "Faire de mal aux pauvres petits " << endl;
-	cout << "Enfants qui auraient peut etre des parents" << endl;
-	cout << "Lepreux. Bis." << endl;
+	//Variables Declaration
+	unsigned int weight, heigth, width, depth, finalNormalTAX;
+	unsigned int finalWeightOverTAX = 0;
+	unsigned int finalWeightTAX;
+	unsigned int finalVolumeOverTAX;
+	unsigned int  finalVATLessTax;
+	double finalVAT, finalTAXToPay, packageVolume;
+
+	cout << "---------------------------------" << endl;
+	cout << "| Programme de calcul des colis |" << endl;
+	cout << "| By Korradi and Gottburg       |" << endl;
+	cout << "---------------------------------" << endl;
+	cout << "Veuillez entrer la hauteur du collis" << endl;
+	cin >> heigth;
+	cout << "Veuillez entrer la largeur du collis" << endl;
+	cin >> width;
+	cout << "Veuillez entrer la profondeur du collis" << endl;
+	cin >> depth;
+	cout << "Veuillez entrer la lourdeur du collis" << endl;
+	cin >> weight;
+	if (weight > EXCESSWEIGHT5TO8TAX)
+	{
+		if (weight > EXCESSWEIGHT8TO10TAX)
+		{
+			int tempWeight;
+			if (weight > MAXPACKAGEWEIGHT)
+			{
+				cout << "go suck yourself" << endl;
+			}
+			else
+			{
+				finalWeightOverTAX += (weight - 8) * 2 + 3;
+			}
+		}
+		else
+		{
+			finalWeightOverTAX += (weight - 5);
+		}
+	}
+	packageVolume = width*heigth*depth;
+	if ((width > 50) || (depth > 50) || (heigth < 50)){
+		cout << "Go suck yourself" << endl;
+	}
+	else
+	{
+		if (packageVolume > 27)
+		{
+			if (packageVolume > 33) {
+				finalVolumeOverTAX = EXCESSVOLUMEMORETHEN33DM3TAX;
+
+			}
+			else
+			{
+				finalVolumeOverTAX = EXCESSVOLUMEMORETHEN27DM3TAX;
+			}
+		}
+	}
+	finalVATLessTax = finalVolumeOverTAX + finalWeightOverTAX + NORMALPACKAGETAX;
+	finalVAT = finalVATLessTax * VAT;
+	finalTAXToPay = finalVAT + finalVATLessTax;
+
+	cout << NORMALPACKAGETAX << " | " << finalWeightOverTAX << " | " << finalVolumeOverTAX << " | " << finalVATLessTax << " | " << finalVAT << " | " << finalTAXToPay << endl;
+
+
 	return 0;
 
 
