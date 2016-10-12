@@ -36,7 +36,19 @@ int main() {
 
 	unsigned int finalNormalTAX, fianlWeightOverTAX, finalVolumeOverTAX, finalVATLessTax;
 	double finalVAT, finalTAXToPay;
-
+	cout << "Salutations et bienvenue dans ce logiciel fais par des" << endl;
+	cout << "Connards qui n'ont pas " << endl;
+	cout << "Hesite à vous faire croire à une " << endl;
+	cout << "Utopie." << endl;
+	cout << "Toujours est-il que nousa vons regarde" << endl;
+	cout << "Zootopia et pensent que" << endl;
+	cout << "Salomon viendrait enfait du " << endl;
+	cout << "Togo et ne serait pas " << endl;
+	cout << "Autoritaire, tout du moins, pas plus que " << endl;
+	cout << "Franz qui ne pensait pas " << endl;
+	cout << "Faire de mal aux pauvres petits " << endl;
+	cout << "Enfants qui auraient peut etre des parents" << endl;
+	cout << "Lepreux. Bis." << endl;
 	return 0;
 
 
