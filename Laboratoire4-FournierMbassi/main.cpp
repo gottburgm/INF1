@@ -16,6 +16,7 @@
 
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -30,8 +31,7 @@ int main(int argc, char** argv) {
     const float TVA = 0.08;
     const unsigned int TAXE_NORM = 5, LIM_POIDS1 = 8, LIM_POIDS2 = 5,SUPP_POIDS1 = 2,
           SUPP_POIDS2 = 1, LIM_VOL1 = 33, LIM_VOL2 = 27,SUPP_VOL1 = 6, SUPP_VOL2 = 3,
-          POIDS_MAX = 10, DIM_MAX = 50;
-    
+          POIDS_MAX = 10, DIM_MAX = 50, FACTURE_WIDTH = 30;
     
     cout << "Veuillez saisir la longueur [cm] : " << endl;
     cin >> longueur;
@@ -78,34 +78,40 @@ int main(int argc, char** argv) {
         int quotient = taxeTot * TVA * 100 / 5;
         taxeTTC = taxeTot + quotient * 5.0 / 100;
         
-        cout << endl << endl << "=========== FACTURE ===========" << endl;
-        cout << "Taxe normale : " << TAXE_NORM << " Frs." << endl;
+        cout << setprecision(2) << fixed;
+        
+        cout << endl << endl 
+             << "===================== FACTURE ======================" << endl;
+        cout << left << setw(FACTURE_WIDTH) 
+             << "Taxe normale : " << float(TAXE_NORM) << " Frs." << endl;
         
         if(taxePoids > 0){
-           cout << "Surtaxe poids : " << taxePoids << "Frs. ( " << poids << " kg)" << endl; 
+           cout << left << setw(FACTURE_WIDTH)
+                << "Surtaxe poids : " << float(taxePoids) 
+                << " Frs. (" << poids << " kg)" << endl; 
         }
 
         if(taxeVolume > 0){
-           cout << "Dimensions : " << longueur << "cm x " << largeur << "cm x " << hauteur << "cm\n";
-           cout << "Surtaxe d'encombrement : " << taxeVolume << " Frs. ( " << volume << " dm3)" << endl; 
+           cout << left << setw(FACTURE_WIDTH)
+                << "Surtaxe d'encombrement : " << float(taxeVolume)
+                << " Frs. (" << volume << " dm3)" << endl; 
         }
 
-        cout << "Taxe sans TVA : " << taxeTot << " Frs." << endl;
+        cout << endl << left << setw(FACTURE_WIDTH)
+             << "Taxe sans TVA : " << taxeTot << " Frs." << endl;
 
         /* AJout de la taxe pour obtenir le prix final */
         //prix_total += prix_taxe_arrondi;
 
-        cout << "TVA : " << TVA * 100 << "% ." << endl;
-        cout << "Valeur ajoutee : " << taxeTTC - taxeTot << " Frs. ("<< taxeTot * TVA << ")."<<endl << endl << endl;
-        cout << "Total : " << taxeTTC << " Frs." << endl;
-        cout << "===============================" << endl;
+        cout << left << setw(FACTURE_WIDTH)
+             << "TVA : " << TVA * 100 << "%" << endl;
+        cout << left << setw(FACTURE_WIDTH)
+             << "Valeur ajoutee : " << taxeTTC - taxeTot 
+             << " Frs. ("<< taxeTot * TVA << " Frs.)"<<endl<<endl;
+        cout << left << setw(FACTURE_WIDTH)
+             << "Total : " << taxeTTC << " Frs." << endl;
+        cout << "====================================================" << endl;
     }
-    
-    
-    
-    
-    
-    
     return 0;
 }
 
