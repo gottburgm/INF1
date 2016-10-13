@@ -9,7 +9,25 @@
  But         : - Instructions conditionnelles
                - Vérification des valeurs saisies
 
- Remarque(s) : <à compléter>
+ Remarque(s) :
+ ============================================== Tests ===============================================
+|       Valeurs         |               Résultat(s)                 |   Remarque                    |
+|   0, 2, 3, 4          |   Message erreur saisie                   |   OK                          |
+|   2, 0, 3, 4          |   Message erreur saisie                   |   OK                          |
+|   2, 3, 0, 4          |   Message erreur saisie                   |   OK                          |
+|   2, 3, 4, 0          |   Message erreur saisie                   |   OK                          |
+|   a, , ,              |   Message erreur saisie                   |   OK                          |
+|   -1, 2, 3, 4         |   Message erreur saisie                   |   OK                          |
+|   2, 3, 4, 11         |   Message: Colis hors norme : poids       |   OK                          |
+|   50, 50, 50, 1       |   5.-, 6.-, -, 11.00.-, 0.85.-,  11.85.-  |   OK                          |
+|   10, 20, 30, 7       |   5.-, 2.-, -, 7.00.-, 0.55.-,  7.55.-    |   OK                          |   
+|   51, 20, 30, 1       |   Message: Colis hors norme : dimensions  |   OK                          |   
+|   10, 51, 51, 1       |   Message: Colis hors norme : dimensions  |   OK                          |   
+|   10, 10, 51, 1       |   Message: Colis hors norme : dimensions  |   OK                          |   
+|   50, 50, 50, 4       |   5.-, 6.-, - , 11.00.-, 0.85.-, 11.85.-  |   OK                          |   
+|   1, 1, 1, 8          |   5.-, -, 3.00 , 8.00.-, 0.60.-, 8.60.-   |   OK                          |   
+|   4000000000000, , ,  |   Message erreur saisie                   |   OK                          |   
+=====================================================================================================
 
  Compilateur : Ubuntu g++ 5.4.0
  -----------------------------------------------------------------------------------
@@ -75,7 +93,8 @@ int main(int argc, char** argv) {
             taxeVolume = SUPP_VOL2;
         }
         taxeTot = taxeVolume + taxePoids + TAXE_NORM;
-        
+           
+        /* AJout de la taxe pour obtenir le prix final */
         int quotient = taxeTot * TVA * 100 / 5;
         taxeTTC = taxeTot + quotient * 5.0 / 100;
         
@@ -100,9 +119,6 @@ int main(int argc, char** argv) {
 
         cout << endl << left << setw(FACTURE_WIDTH)
              << "Taxe sans TVA : " << taxeTot << " Frs." << endl;
-
-        /* AJout de la taxe pour obtenir le prix final */
-        //prix_total += prix_taxe_arrondi;
 
         cout << left << setw(FACTURE_WIDTH)
              << "TVA : " << TVA * 100 << "%" << endl;
