@@ -2,7 +2,8 @@
  -----------------------------------------------------------------------------------
  Laboratoire : 04
  Fichier     : Fournier_Mbassi.cpp
- Auteur(s)   : Robin Fournier
+ Auteur(s)   : Vladimir Mbassi
+               Robin Fournier
  Date        : 12.10.2016
 
  But         : - Instructions conditionnelles
