@@ -30,17 +30,23 @@ int main() {
 	int const NORMALPACKAGEVOLUME = 27;			//dm3
 	int const EXCESSWEIGHT5TO8TAX = 1;			//CHF
 	int const EXCESSWEIGHT8TO10TAX = 2;			//CHF
+	int const EXCESSWEIGHT8TO10 = 8;			//KG
+	int const EXCESSWEIGHT5TO8 = 5;				//KG
 	int const EXCESSVOLUMEMORETHEN27DM3TAX = 3;	//CHF
 	int const EXCESSVOLUMEMORETHEN33DM3TAX = 6;	//CHF
-	double const VAT = 0.8;
+	float const VAT = 0.8;
 
 	//Variables Declaration
-	unsigned int weight, heigth, width, depth, finalNormalTAX;
+	unsigned int heigth = 0;
+	unsigned int width = 0;
+	unsigned int depth = 0;
+	unsigned int weight = 0;
+	unsigned int finalNormalTAX = 0;
 	unsigned int finalWeightOverTAX = 0;
-	unsigned int finalWeightTAX;
-	unsigned int finalVolumeOverTAX;
-	unsigned int  finalVATLessTax;
-	double finalVAT, finalTAXToPay, packageVolume;
+	unsigned int finalWeightTAX = 0;
+	unsigned int finalVolumeOverTAX = 0;
+	unsigned int  finalVATLessTax = 0;
+	float finalVAT, finalTAXToPay, packageVolume;
 
 	cout << "---------------------------------" << endl;
 	cout << "| Programme de calcul des colis |" << endl;
@@ -54,28 +60,29 @@ int main() {
 	cin >> depth;
 	cout << "Veuillez entrer la lourdeur du collis" << endl;
 	cin >> weight;
-	if (weight > EXCESSWEIGHT5TO8TAX)
+	cout << weight << endl;
+	if (weight > EXCESSWEIGHT5TO8)
 	{
-		if (weight > EXCESSWEIGHT8TO10TAX)
+		if (weight > EXCESSWEIGHT8TO10)
 		{
-			int tempWeight;
 			if (weight > MAXPACKAGEWEIGHT)
 			{
-				cout << "go suck yourself" << endl;
+				cout << "go suck yourself 1" << endl;
 			}
 			else
 			{
-				finalWeightOverTAX += (weight - 8) * 2 + 3;
+				finalWeightOverTAX += (weight - 8) * EXCESSWEIGHT8TO10TAX + EXCESSWEIGHT5TO8TAX * 3;
 			}
 		}
 		else
 		{
-			finalWeightOverTAX += (weight - 5);
+			finalWeightOverTAX += (weight - 5) * EXCESSWEIGHT5TO8TAX;
 		}
 	}
 	packageVolume = width*heigth*depth;
-	if ((width > 50) || (depth > 50) || (heigth < 50)){
-		cout << "Go suck yourself" << endl;
+	if ((width > 50) || (depth > 50) || (heigth > 50))
+	{
+		cout << "Go suck yourself 2" << endl;
 	}
 	else
 	{
