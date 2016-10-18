@@ -34,7 +34,7 @@ int main() {
             cout << "28 ou 29 jours";
             break;
         default:
-            cout << 30 + ((noMois > (int)Mois::JUN )?1 - noMois %2 : noMois % 2) 
+            cout << 30 + ((noMois > (int)Mois::JUN )?1 - noMois % 2 : noMois % 2) 
                  << " jours.";
             break;
     }
