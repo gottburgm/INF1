@@ -64,11 +64,11 @@ int main()
             int exposant = 0;
             if (inputUserF >= LIMIT)
             {
-                int exp = int(inputUserF);
+                int tempExp = int(inputUserF);
                 expo_iterator = -1;
-                while (exp)
+                while (tempExp)
                 {
-                    exp /= BINARY_BASE;
+                    tempExp /= BINARY_BASE;
                     expo_iterator++;
                 }
                 exposant = expo_iterator;
