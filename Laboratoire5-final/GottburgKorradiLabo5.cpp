@@ -113,11 +113,11 @@ int main()
         }
         while (mantisseB.length() < MANTISSE_LENGTH)
         {
-            mantisseB = mantisseB + '0';
+            mantisseB += '0';
         }
         while (exposantB.length() < EXPONENT_LENGTH)
         {
-            exposantB = exposantB + '0';
+            exposantB += '0';
         }
 
         /* Affichage des resultats */
