@@ -1,18 +1,18 @@
 /*
-?---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 Laboratoire : Laboratoire 5
-Fichier     : GottburgKorradLabo5.cpp
+Fichier     : GottburgKorradiLabo5.cpp
 Auteur(s)   : Michael Gottburg, Frederic Korradi
 Date        : 08.11.2016
 
-But         : Instructions conditionnelles
+But         : Chapitre 3a et 3b
 
 
 Remarque(s) : std::cout car sous linux on peut seulement faire les appels
-de cette manière.
+			  de cette manière.
 
 Compilateur : MinGW-g++ 4.8.1
-?---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 */
 #include <iostream>
 #include <iomanip>
@@ -22,75 +22,84 @@ Compilateur : MinGW-g++ 4.8.1
 using namespace std;
 
 int main() {
-	while (true) {
 		float inputUserF;
 		int expo = 0;
-		cout << "Valeur : ";
+		int const BINARY_BASE = 2;
+		int const ASCII_0 = 48;
+		int const LIMIT = 1;
+		int const MANTISSE_LENGTH = 23;
+		int const EXPONENT_LENGTH = 8;
+		bool isNull = false;
+		std::cout << "Valeur : ";
 		cin >> inputUserF;
+		if (cin.fail()) {
+			return 1;
+		}
+		if (inputUserF == 0) {
+			isNull = true;
+		}
 		int signe = (inputUserF < 0);
 		if (signe) {
-			inputUserF *= -1;
+			inputUserF *= -LIMIT;
 		}
 		string inputUserB;
-		int exposant;
-		if (inputUserF >= 1) {
+		int exposant = 0;
+		if (inputUserF >= LIMIT) {
 			int exp = int(inputUserF);
 			expo = -1;
 			while (exp) {
-				exp /= 2;
+				exp /= BINARY_BASE;
 				expo++;
 			}
-			//cout << expo << endl;
 			exposant = expo;
 		}
 		else {
-			float exp = inputUserF;
+			float tempExp = inputUserF;
 			bool hitOne = true;
-			while (exp) {
-				exp *= 2;
+			while (tempExp) {
+				tempExp *= BINARY_BASE;
 				if (hitOne) {
 					expo--;
 				}
-				if (exp >= 1) {
-					exp -= 1;
+				if (tempExp >= LIMIT) {
+					tempExp -= 1;
 					hitOne = false;
 				}
-				//cout << exp << endl;
 				exposant = expo;
 			}
 		}
 		string exposantB = "";
 		exposant += 127;
 		while (exposant) {
-			exposantB = char(48 + int(exposant) % 2) + exposantB;
-			//cout << exposantB << " | " << exposant << endl;
-			exposant /= 2;
+			exposantB = char(ASCII_0 + int(exposant) % BINARY_BASE) + exposantB;
+			exposant /= BINARY_BASE;
 		}
-		//cout << exposantB << endl;
-
-
-
-
-		int mantisseINT = inputUserF;
-		float mantisseFLOAT = inputUserF - mantisseINT;
+		int mantisseInt = inputUserF;
+		float mantisseFloat = inputUserF - mantisseInt;
 		string mantisseB;
-		while (mantisseINT) {
-			mantisseB = char(48 + mantisseINT % 2) + mantisseB;
-			mantisseINT /= 2;
+		while (mantisseInt) {
+			mantisseB = char(ASCII_0 + mantisseInt % BINARY_BASE) + mantisseB;
+			mantisseInt /= BINARY_BASE;
 		}
-		while (mantisseFLOAT) {
-			mantisseFLOAT = mantisseFLOAT - int(mantisseFLOAT);
-			mantisseB += char(48 + int(mantisseFLOAT * 2));
-			mantisseFLOAT *= 2;
+		while (mantisseFloat) {
+			mantisseFloat = mantisseFloat - int(mantisseFloat);
+			mantisseB += char(ASCII_0 + int(mantisseFloat * BINARY_BASE));
+			mantisseFloat *= BINARY_BASE;
 		}
 		mantisseB[0] = ' ';
-		int i = 0;
-		int length = 0;
-		//cout << mantisseB << endl;
-
-		cout << "\nSigne : " << signe;
-		cout << "\nMantisse :" << mantisseB;
-		cout << "\nExposant : " << exposantB << endl;
-	}
+		if (isNull) {
+			mantisseB = "0";
+			exposantB = "0";
+		}
+		while (mantisseB.length() < MANTISSE_LENGTH) {
+			mantisseB = mantisseB + '0';
+		}
+		while (exposantB.length() < EXPONENT_LENGTH) {
+			exposantB = '0' + exposantB;
+		}
+		
+		std::cout << "\nSigne : " << signe;
+		std::cout << "\nMantisse :" << mantisseB;
+		std::cout << "\nExposant : " << exposantB << endl;
 	return 0;
 }
