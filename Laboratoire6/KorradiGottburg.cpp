@@ -1,22 +1,21 @@
 /*
------------------------------------------------------------------------------------
-Laboratoire  : Laboratoire 06
-Fichier      : KorradiGottburgLabo6.cpp
+ ---------------------------------------------------------------------------------
+ Laboratoire  : Laboratoire 06
+ Fichier      : KorradiGottburgLabo6.cpp
+ 
+ Auteurs      : - Michael Gottburg (INF1)
+				- Frederic Korradi (INF1)
 
-Auteurs      : - Michael Gottburg (INF1)
-			   - Frederic Korradi (INF1)
+ Dates        : - 15.11.2016 (debut du projet)
+				- 15.11.2016 (rendu du projet)
 
-Dates        : - 15.11.2016 (debut du projet)
-			   - 15.11.2016 (rendu du projet)
+ Buts         : - Appliquer les elements vus dans les chapitres 3a et 3b
 
-Buts         : - Appliquer les elements vus dans les chapitres 3a et 3b
-
-Remarque(s)  : std::cout car sous linux on peut seulement faire les appels
-			   de cette manière.
-
-Compilateurs : - MinGW-g++ 4.8.1 (Windows)
-			   - gcc version 4.9.2 (Linux)
----------------------------------------------------------------------------------
+ Remarque(s)  : std::cout car sous linux on peut seulement faire les appels
+				de cette manière.
+ Compilateurs : - MinGW-g++ 4.8.1 (Windows)
+				- gcc version 4.9.2 (Linux)
+ ---------------------------------------------------------------------------------
 */
 #include <iostream>
 #include <string>
