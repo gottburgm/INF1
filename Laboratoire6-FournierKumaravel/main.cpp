@@ -48,12 +48,14 @@
 using namespace std;
 
 int main() {
+    float tempsaisie = 0;
     int saisie=1, lastSaisie=0, cmptRepetitions=1;
     bool estCroissant = true;
     
     cout<< "Valeurs : ";
     while(saisie) {
-        cin >> saisie ;
+        cin >> tempsaisie ;
+        saisie = tempsaisie;
         if(lastSaisie) { //seul moment où lastSaisie = 0 : premier tour de boucle
             if(saisie != lastSaisie) {
                 if(cmptRepetitions > 1) {
