@@ -4,17 +4,17 @@
  Fichier      : KorradiGottburgLabo6.cpp
 
  Auteurs      : - Michael Gottburg (INF1)
-			             - Frederic Korradi (INF1)
+			    - Frederic Korradi (INF1)
 
  Dates        : - 15.11.2016 (debut du projet)
-			             - 16.11.2016 (rendu du projet)
+			    - 16.11.2016 (rendu du projet)
 
  Buts         : - Chapitre 3a et 3b | Utilisation de boucles
 
  Remarque(s)  : - Aucune remarque particuliere
 
  Compilateurs : - MinGW-g++ 4.8.1 (Windows)
-			             - gcc version 4.9.2 (Linux)
+			    - gcc version 4.9.2 (Linux)
  -------------------------------------------------------------------------------
 */
 
