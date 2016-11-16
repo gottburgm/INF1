@@ -30,13 +30,13 @@ int main() {
 	int repetitionCount = 0;
 	bool isIncreasing = true;
 
-	//Début du programme
+	//Debut du programme
 	cout << "Valeurs : ";
 	while (input) {
 		cin >> input;
 		if (!cin.fail()) {
-			if (lastInput) { // Aucun traitement au premier nombre saisit
-				if (input != lastInput) {
+			if (lastInput) { // Aucun traitement sur le premier nombre saisi
+				if (input != lastInput) { //si last input vaut 0, premier nbr
 					inputCount++;
 					if (repetitionCount) {
 						cout << ++repetitionCount << 'x';
@@ -59,8 +59,8 @@ int main() {
 			lastInput = input;
 		}
 		else {
-			cout << "Erreur lors de la saisie." << endl;
-			return 1;
+			cout << "Erreur : Un ou plusieurs des caracteres saisis ne sont pas des entiers." << endl;
+			return 1; // Retour de 1 pour arrêter le programme en erreur.
 		}
 	}
 
