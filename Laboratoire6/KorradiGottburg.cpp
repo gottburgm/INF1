@@ -1,62 +1,63 @@
 /*
- ---------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
  Laboratoire  : Laboratoire 06
  Fichier      : KorradiGottburgLabo6.cpp
- 
+
  Auteurs      : - Michael Gottburg (INF1)
-				- Frederic Korradi (INF1)
+                - Frederic Korradi (INF1)
 
  Dates        : - 15.11.2016 (debut du projet)
-				- 15.11.2016 (rendu du projet)
+                - 16.11.2016 (rendu du projet)
 
- Buts         : - Appliquer les elements vus dans les chapitres 3a et 3b
+ Buts         : - Comprendre et utiliser la fonction "cin" 
 
- Remarque(s)  : std::cout car sous linux on peut seulement faire les appels
-				de cette manière.
+ Remarque(s)  : - Aucune remarque particuliere
+
  Compilateurs : - MinGW-g++ 4.8.1 (Windows)
-				- gcc version 4.9.2 (Linux)
- ---------------------------------------------------------------------------------
+                - gcc version 4.9.2 (Linux)
+ -------------------------------------------------------------------------------
 */
+
 #include <iostream>
-#include <string>
+
 using namespace std;
 
 int main() {
-	int input = 1;
-	bool croissante = true;
-	string output="";
-	int lastInput = 0;
-	cout << "Valeurs : ";
-	int compteur = 0;
-	while (input !=0) {
-		cin >> input;
-		if(cin.fail()) {  // Pour gérer les erreurs de saisie, on kill le programme.
-			input = 0;
-		}
-		if (input == lastInput) {
-			compteur++;
-		}
-		else {
-			if (input < lastInput && input) {
-				croissante = false;
-			}
-			if (compteur) {
-				cout << ++compteur;
-				cout << "x";
-				compteur = 0;
-			}if (!compteur && lastInput) {
-				cout << lastInput;
-				if (input) {
-					cout << ",";
-				}
-			}
-		}
-		lastInput = input;
-	}
-	cout << endl << "Suite";
-	if(!croissante){
-		cout << " non";
-	}
-	cout << " croissante" << endl;
-	return 0;
+    int input = 1;
+    int lastInput = 0;
+    int repetitionCount = 0;
+    bool isIncreasing = true;
+
+    cout << "Valeurs : ";
+    while (input) {
+        cin >> input;
+        if (!cin.fail()) {
+            if (lastInput) { // Aucun traitement au premier nombre saisit
+                if (input == lastInput) {
+                    repetitionCount++;
+                } else if (input) { // On ne traite pas le 0 de fin de saisie
+                    if (input < lastInput) {
+                        isIncreasing = false; // La suite n'est pas croissante
+                    }
+                    // Affichage du nombre de repetition si celui n'est pas nul
+                    if (repetitionCount) {
+                        cout << ++repetitionCount << 'x';
+                        repetitionCount = 0;    // Reinitialisation du compteur
+                    }
+                    cout << lastInput << ',';
+                } else {
+                    cout << lastInput; // Derniere valeur avant le 0
+                }                      // Affichage sans virgule
+            }
+            lastInput = input;
+        } else {
+            cout << "Erreur lors de la saisie ." << endl;
+            return 1;
+        }
+    }
+    
+    /* Affichage du type de suite (croissante ou non) en fonction de isIncreasing */
+    cout << endl << "Suite " << (isIncreasing ? "croissante" : "non croissante") << endl;
+
+    return 0;
 }
